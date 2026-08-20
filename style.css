@@ -16,6 +16,13 @@ p{
     font-family: cursive;
     text-align: justify;
 }
+ul {
+    font-family: cursive;
+    font-size: 20px;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+}
 img {
     width: 100%;
     max-width: 800px;
