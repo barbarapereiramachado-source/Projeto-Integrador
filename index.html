@@ -1,105 +1,584 @@
-<!DOCTYPE html><!-- indica que é o HTML5-->
-<html lang="pt-BR"> <!--Indica a liguagem-->
-<head> <!--cabeçalho-->
-    <meta charset="UTF-8"> <!--define a cofidicação de caracteres-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Rsponsividade-->
-    <title>Projeto Integrador</title> <!--Título do navegador-->
-    <link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfólio - Projeto Integrador</title>
+
+<style>
+:root{
+  --primary:#6c63ff;
+  --secondary:#00b8d9;
+  --dark:#172033;
+  --text:#354052;
+  --light:#f5f7fb;
+  --white:#ffffff;
+  --shadow:0 12px 30px rgba(23,32,51,.10);
+  --radius:20px;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  color:var(--text);
+  background:linear-gradient(135deg,#f7f9ff 0%,#eef7ff 100%);
+  line-height:1.7;
+}
+
+#barra-acessibilidade{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  padding:10px 15px;
+  background:#111827;
+  box-shadow:0 4px 15px rgba(0,0,0,.18);
+}
+
+#barra-acessibilidade button{
+  border:1px solid rgba(255,255,255,.2);
+  background:#1f2937;
+  color:white;
+  padding:9px 13px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+  transition:.2s;
+}
+
+#barra-acessibilidade button:hover{
+  background:var(--primary);
+  transform:translateY(-2px);
+}
+
+header{
+  position:relative;
+  text-align:center;
+  padding:75px 20px 85px;
+  color:white;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(0,184,217,.35),transparent 30%),
+    radial-gradient(circle at 85% 20%,rgba(108,99,255,.45),transparent 32%),
+    linear-gradient(135deg,#111827,#273469);
+  overflow:hidden;
+}
+
+header:after{
+  content:"";
+  position:absolute;
+  left:-5%;
+  right:-5%;
+  bottom:-70px;
+  height:120px;
+  background:var(--light);
+  border-radius:50% 50% 0 0;
+}
+
+header h1{
+  position:relative;
+  z-index:2;
+  margin:0 auto 15px;
+  font-size:clamp(2rem,5vw,4rem);
+  letter-spacing:-1px;
+}
+
+header p{
+  position:relative;
+  z-index:2;
+  max-width:850px;
+  margin:12px auto;
+  font-size:1.08rem;
+  opacity:.95;
+}
+
+header img{
+  position:relative;
+  z-index:2;
+  display:block;
+  width:min(850px,92%);
+  max-height:430px;
+  object-fit:cover;
+  margin:30px auto;
+  border:7px solid rgba(255,255,255,.9);
+  border-radius:24px;
+  box-shadow:0 25px 55px rgba(0,0,0,.3);
+}
+
+main{
+  width:min(1100px,92%);
+  margin:0 auto;
+  padding:20px 0 70px;
+}
+
+section{
+  position:relative;
+  margin:30px 0;
+  padding:35px;
+  background:rgba(255,255,255,.95);
+  border:1px solid rgba(108,99,255,.10);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+section:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:7px;
+  height:100%;
+  background:linear-gradient(var(--primary),var(--secondary));
+}
+
+h2{
+  margin-top:0;
+  color:var(--dark);
+  font-size:clamp(1.55rem,3vw,2.2rem);
+}
+
+h3{
+  color:var(--primary);
+  margin-top:28px;
+}
+
+p{font-size:1.03rem}
+
+ul{
+  padding-left:22px;
+}
+
+li{
+  margin:15px 0;
+  padding:14px 16px;
+  background:#f8faff;
+  border-radius:12px;
+  border-left:3px solid var(--secondary);
+}
+
+li strong{color:var(--dark)}
+
+video{
+  display:inline-block;
+  vertical-align:top;
+  width:calc(50% - 12px);
+  margin:20px 8px 0 0;
+  border-radius:16px;
+  background:#111827;
+  box-shadow:0 10px 25px rgba(0,0,0,.16);
+}
+
+footer{
+  text-align:center;
+  padding:45px 20px;
+  color:white;
+  background:#111827;
+}
+
+footer p{
+  margin:5px;
+}
+
+@media(max-width:700px){
+  header{padding:50px 15px 70px}
+  section{padding:25px 22px}
+  video{display:block;width:100%;margin:18px 0}
+  #barra-acessibilidade{justify-content:flex-start}
+}
+
+html.acessibilidade-clara body{background:white;color:#111}
+html.acessibilidade-clara section{background:white;border:2px solid #111}
+html.acessibilidade-clara header{background:#fff;color:#111}
+html.acessibilidade-clara footer{background:#fff;color:#111}
+
+html.acessibilidade-escura body{background:#111827;color:#f9fafb}
+html.acessibilidade-escura section{background:#1f2937;color:#f9fafb}
+html.acessibilidade-escura h2,
+html.acessibilidade-escura h3,
+html.acessibilidade-escura li strong{color:#fff}
+html.acessibilidade-escura li{background:#374151}
+</style>
+
 </head>
-<body> <!-- É o corpo-->
-    <h1><strong> Este é o produto final do Projeto Integrador 2° Ano </strong>!</h1>
-    <!--Define um título de segundo nível. Usado aqui para destacar o nome "Janinha" em negrito e com fonte maior. -->
 
-    <!-- Sua Foto -->
-    <img src="IMG_2700.jpeg" alt="Foto da turma do 2° B" >
+<body>
 
-    <!-- Botões de acessibilidade -->
-    <div class="accessibility-bar">
-      <button id="theme-toggle" aria-label="Alternar modo claro/escuro" title="Alternar tema">
-        <span id="theme-icon">🌙</span> Modo Escuro
-      </button>
-      <button id="read-aloud-toggle" aria-label="Ler página em voz alta" title="Ouvir conteúdo">
-        <span id="read-icon">🔊</span> Ler Página
-      </button>
-    </div>
+    <div id="barra-acessibilidade" role="region" aria-label="Ferramentas de acessibilidade">
+  <button type="button" id="btn-ler" aria-pressed="false">
+    <span aria-hidden="true">🔊</span> Ler página
+  </button>
+  <button type="button" id="btn-escurecer" aria-label="Diminuir contraste, escurecer o texto">
+    <span aria-hidden="true">🌙</span> Escurecer
+  </button>
+  <button type="button" id="btn-clarear" aria-label="Aumentar contraste, clarear o texto">
+    <span aria-hidden="true">☀️</span> Clarear
+  </button>
+  <button type="button" id="btn-aumentar-fonte" aria-label="Aumentar tamanho da fonte">
+    <span aria-hidden="true">A+</span>
+  </button>
+  <button type="button" id="btn-diminuir-fonte" aria-label="Diminuir tamanho da fonte">
+    <span aria-hidden="true">A-</span>
+  </button>
+  <button type="button" id="btn-resetar" aria-label="Restaurar aparência original">
+    <span aria-hidden="true">↺</span> Redefinir
+  </button>
+</div>
+<script>
+(function () {
+  "use strict";
 
-    <!-- <h2>: Define um título de segundo nível. Usado aqui para destacar o nome "Janinha" em negrito e com fonte maior. -->
+  var html = document.documentElement;
+  var btnLer = document.getElementById("btn-ler");
+  var btnEscurecer = document.getElementById("btn-escurecer");
+  var btnClarear = document.getElementById("btn-clarear");
+  var btnFontePlus = document.getElementById("btn-aumentar-fonte");
+  var btnFonteMinus = document.getElementById("btn-diminuir-fonte");
+  var btnResetar = document.getElementById("btn-resetar");
 
-    <!-- Sua Biografia -->
+  var tamanhoFonteAtual = 100;
 
-    <h2>Biografia</h2> <!--Define um título de segundo nível, um pouco menor que o <h1>,-->
+  var sintetizador = window.speechSynthesis;
+  var falando = false;
+
+  function pegarTextoDaPagina() {
+    var clone = document.body.cloneNode(true);
+    var barraNoClone = clone.querySelector("#barra-acessibilidade");
+    if (barraNoClone) barraNoClone.remove();
+    return clone.innerText || clone.textContent || "";
+  }
+
+  function lerPagina() {
+    if (!sintetizador) {
+      alert("Seu navegador não suporta leitura de página (Web Speech API).");
+      return;
+    }
+    var texto = pegarTextoDaPagina().trim();
+    if (!texto) return;
+
+    var fala = new SpeechSynthesisUtterance(texto);
+    fala.lang = "pt-BR";
+    fala.rate = 1;
+
+    fala.onend = function () {
+      falando = false;
+      btnLer.setAttribute("aria-pressed", "false");
+      btnLer.innerHTML = '<span aria-hidden="true">🔊</span> Ler página';
+    };
+
+    sintetizador.speak(fala);
+    falando = true;
+    btnLer.setAttribute("aria-pressed", "true");
+    btnLer.innerHTML = '<span aria-hidden="true">⏹</span> Parar leitura';
+  }
+
+  function pararLeitura() {
+    if (sintetizador) sintetizador.cancel();
+    falando = false;
+    btnLer.setAttribute("aria-pressed", "false");
+    btnLer.innerHTML = '<span aria-hidden="true">🔊</span> Ler página';
+  }
+
+  btnLer.addEventListener("click", function () {
+    if (falando) {
+      pararLeitura();
+    } else {
+      lerPagina();
+    }
+  });
+
+  function aplicarContraste(modo) {
+    html.classList.remove("acessibilidade-clara", "acessibilidade-escura");
+    if (modo === "claro") html.classList.add("acessibilidade-clara");
+    if (modo === "escuro") html.classList.add("acessibilidade-escura");
+  }
+
+  btnClarear.addEventListener("click", function () {
+    var jaEstaClaro = html.classList.contains("acessibilidade-clara");
+    aplicarContraste(jaEstaClaro ? "normal" : "claro");
+  });
+
+  btnEscurecer.addEventListener("click", function () {
+    var jaEstaEscuro = html.classList.contains("acessibilidade-escura");
+    aplicarContraste(jaEstaEscuro ? "normal" : "escuro");
+  });
+
+  function ajustarFonte(delta) {
+    tamanhoFonteAtual = Math.min(200, Math.max(70, tamanhoFonteAtual + delta));
+    html.style.fontSize = tamanhoFonteAtual + "%";
+  }
+
+  btnFontePlus.addEventListener("click", function () { ajustarFonte(10); });
+  btnFonteMinus.addEventListener("click", function () { ajustarFonte(-10); });
+
+  btnResetar.addEventListener("click", function () {
+    pararLeitura();
+    aplicarContraste("normal");
+    tamanhoFonteAtual = 100;
+    html.style.fontSize = "";
+  });
+})();
+</script>
+
+    
+<nav class="menu" aria-label="Navegação principal">
+  <a href="#sobre">Sobre</a>
+  <a href="#robotica">Robótica</a>
+  <a href="#fisica">Física</a>
+  <a href="#programacao">Programação</a>
+  <a href="#jornada">Nossa Jornada</a>
+</nav>
+<style>
+.menu{
+  position:sticky;
+  top:62px;
+  z-index:900;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+  padding:10px 15px;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #e5e7eb;
+}
+.menu a{
+  text-decoration:none;
+  color:#273469;
+  font-weight:700;
+  padding:8px 13px;
+  border-radius:10px;
+}
+.menu a:hover{background:#eef0ff;color:#6c63ff}
+@media(max-width:700px){.menu{top:108px}.menu a{font-size:.9rem}}
+</style>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <h1>Portfólio do Projeto Integrador</h1>
+        <img src="WhatsApp Image 2026-09-10 at 07.51.25.jpeg" alt="Foto da turma do 2° B" >
+
+        <p>
+            Somos alunos do 2º Ano do Ensino Médio encarando o desafio do
+            Projeto Integrador neste 2º trimestre.
+        </p>
+
+        <p>
+            Robótica, Física e Tecnociência, Programação se unem para
+            transformar o aprendizado da sala de aula em tecnologia prática.
+        </p>
+    </header>
 
 
-    <p> Neste trimestre, nossa turma embarcou em um desafio: criar uma página na web utilizando a linguagem HTML! 💻🌐</p>
+    <!-- SOBRE O PROJETO -->
+    <main>
 
-    <p>E o site que vocês estão acessando agora é o resultado de todo esse trabalho e aprendizado construído ao longo do trimestre.</p>
+        <section>
+            <h2>Sobre o Projeto Integrador</h2>
 
-    <p>Aqui, vocês poderão conhecer e explorar tudo o que foi desenvolvido nas aulas de Robótica, Programação, Física e Tecnociência. 🤖💡⚙️</p>
+            <p>
+                Bem-vindos à nossa jornada de inovação! 🚀
+            </p>
 
-    <p>Mais do que três disciplinas, esses componentes trabalharam juntos e de forma integrada, unindo criatividade, tecnologia, ciência e programação para transformar ideias em um projeto real.</p>
+            <p>
+                Este site é o diário de bordo do nosso 2º trimestre no
+                Projeto Integrador. Aqui, a teoria ganha vida na prática
+                através da união de quatro grandes áreas:
+                <strong>Robótica, Física, Tecnociência e Programação.</strong>
+            </p>
 
-    <p>Este site representa o resultado da nossa jornada: aprender, criar, experimentar e transformar conhecimento em tecnologia! 🚀</p> <!--Tag de parágrafo-->
+            <p>
+                Mais do que aprender conteúdos isolados, nós conectamos
+                ideias para construir soluções reais. O resultado dessa
+                integração multidisciplinar está presente neste site e
+                nos projetos desenvolvidos ao longo do trimestre.
+            </p>
+        </section>
 
-        <h3> 🤖 Robótica: Aprendizados e Protótipos</h3>
-        <p> Neste tópico, vamos compartilhar fotos, experiências e curiosidades que descobrimos ao longo das aulas de Robótica neste trimestre! 🚀</p>
 
-        <p>Durante esse período, colocamos a mão na massa e transformamos conceitos em protótipos funcionais, explorando na prática como a tecnologia, a eletrônica e a programação podem trabalhar juntas.
-        Entre os projetos desenvolvidos, estão:</p>
+        <!-- ROBÓTICA -->
+        <section>
+            <h2>🤖 Robótica</h2>
 
-        <ul>
-            <li>🔴 Disco de Newton — explorando a composição das cores e a percepção visual.</li>
-            <li>💡 LED Fade-In e LED Fade-Out — trabalhando a variação gradual da intensidade luminosa.</li>
-            <li>🌈 LED RGB — experimentando a combinação das cores vermelho, verde e azul.</li>
-            <li>🌈 Arco-Íris — utilizando a tecnologia para reproduzir diferentes combinações de cores.</li>
-            <li>🚦 Semáforo para cruzamento de veículos — simulando o funcionamento de um sistema de sinalização.</li>
-            <li>👀 Sensor de presença — compreendendo como sensores podem identificar movimentos e acionar dispositivos.</li>
-            <li>🌫️ Sensor de fumaça — explorando a utilização de sensores para detectar alterações no ambiente.</li>
-        </ul>
+            <p>
+                Neste 2º trimestre, a Robótica foi a ponte entre o código
+                e a realidade. Transformamos componentes eletrônicos,
+                placas e sensores em soluções práticas e tecnológicas.
+            </p>
 
-        <p>Cada protótipo foi uma oportunidade para experimentar, testar, corrigir erros e aprender na prática. Afinal, na Robótica, errar também faz parte do processo de criar! 🤖⚙️✨
-        Confira abaixo alguns registros dessa jornada! 📸</p>
+            <h3>Projetos desenvolvidos</h3>
 
-    <img src=""
-        alt="Prótipos das aulas de Robótica" >
-        <video width="640" height="360" controls>
-  <source src="VID-20260821-WA0024.mp4" type="video/mp4">
+            <ul>
+                <li>
+                    <strong>🏎️ Robô Seguidor de Linhas:</strong>
+                    Robô autônomo que utiliza sensores infravermelhos
+                    para identificar o contraste do solo e controlar
+                    os motores, mantendo-se na pista.
+                </li>
+
+                <li>
+                    <strong>🌈 Disco de Newton Motorizado:</strong>
+                    Projeto que une Física e Robótica. A rotação do
+                    disco permite observar a mistura das cores do
+                    espectro visível, produzindo a percepção da cor branca.
+                </li>
+
+                <li>
+                    <strong>💡 Efeitos Luminosos e LED RGB:</strong>
+                    Exploramos o controle PWM para criar efeitos de
+                    iluminação e diferentes combinações de cores em
+                    um LED RGB.
+                </li>
+
+                <li>
+                    <strong>🚦 Semáforo de Cruzamento:</strong>
+                    Simulação de um sistema de trânsito utilizando
+                    programação e automação para controlar a alternância
+                    dos sinais.
+                </li>
+
+                <li>
+                    <strong>🚶 Sensor de Presença:</strong>
+                    Sistema capaz de identificar movimentos no ambiente
+                    e executar respostas automáticas, como acender luzes
+                    ou ativar alarmes.
+                </li>
+
+                <li>
+                    <strong>🚨 Sensor de Gás e Fumaça:</strong>
+                    Projeto voltado à segurança, utilizando sensores para
+                    monitorar o ambiente e emitir alertas quando gases
+                    ou fumaça são detectados.
+                </li>
+            </ul>
+            <video controls>
+    <source src="VID-20260821-WA0024.mp4" type="video/mp4">
+    
 </video>
-<video width="640" height="360" controls>
-  <source src="VID-20260821-WA0025.mp4" type="video/mp4">
+
+<video controls>
+    <source src="VID-20260821-WA0025.mp4" type="video/mp4">
+    
 </video>
+        </section>
 
 
+        <!-- FÍSICA E TECNOCIÊNCIA -->
+        <section>
+            <h2>🔬 Física e Tecnociência</h2>
 
-        <h3> 🔬 Física & Tecnociência: Ciência em Ação </h3>
-        <p>Neste trimestre, a turma do 2º ano mergulhou no fascinante universo da óptica, sempre com os pés fincados no método científico! Começamos investigando como a divulgação científica comunica descobertas ao mundo e exploramos os limites da nossa própria visão entendendo o que enxergamos e por quê.</p>
+            <p>
+                A Física e a Tecnociência contribuíram para compreender
+                os princípios presentes nos projetos desenvolvidos.
+                Através da experimentação, relacionamos conceitos
+                científicos com situações práticas e soluções tecnológicas.
+            </p>
 
-        <p>A partir daí, a luz virou protagonista: estudamos suas propriedades, como ela se comporta ao encontrar espelhos e como se curva ao atravessar diferentes meios no fenômeno da refração. Essa jornada nos levou até a fibra óptica, tecnologia que conecta o mundo digital, e à decomposição da luz em cores.</p>
+            <p>
+                Durante as atividades, investigamos fenômenos relacionados
+                à luz, às cores, ao movimento, à eletricidade e ao
+                funcionamento de diferentes componentes e sensores.
+            </p>
+        </section>
 
-        <p>Na sequência, os estudantes aprofundaram-se no estudo das lentes, seus elementos, aplicações práticas e como formam imagens — para finalmente compreender a óptica do olho humano em detalhes, unindo física, biologia e acessibilidade.</p>
 
-        <p>Como fechamento, a turma organizou e estruturou as atividades para o produto final do projeto, aplicando tudo o que foi investigado ao longo do trimestre para propor soluções tecnológicas com impacto real na vida cotidiana.</p>
+        <!-- PROGRAMAÇÃO -->
+        <section>
+            <h2>💻 Programação</h2>
 
-        <p>Um trimestre de muita observação, experimentação e curiosidade científica! 👁️✨</p>
+            <p>
+                Na disciplina de Programação, deixamos o código de
+                bastidores e passamos a dominar a criação e estruturação
+                de ambientes digitais.
+            </p>
 
-    <img src=""
-        alt="Fotos das aulas de física" >
+            <h3>Da primeira tag à criação do site</h3>
 
-<h4>💻 Programação: Do Código à Criação</h4>
-<p>Neste trimestre, nossas aulas de Programação foram dedicadas ao aprendizado da linguagem HTML, e tivemos um grande desafio: colocar em prática tudo o que aprendemos para desenvolver este site! 🌐💻</p>
+            <p>
+                Utilizando o Visual Studio Code, mergulhamos no universo
+                do HTML para aprender como a internet é construída
+                linha por linha.
+            </p>
 
-<p>Ao longo das aulas, exploramos os principais conceitos do HTML, entendendo como funcionam as tags, elementos, atributos e a estrutura de uma página web. Mais do que aprender códigos, descobrimos como uma ideia pode se transformar, passo a passo, em uma página acessível e interativa.</p>
+            <ul>
+                <li>
+                    <strong>🧱 HTML:</strong>
+                    Aprendemos a utilizar o HTML para estruturar títulos,
+                    parágrafos, imagens, listas e outros elementos de
+                    uma página web.
+                </li>
 
-<p>Criar este site não foi uma tarefa fácil! Foram muitos testes, descobertas, erros, correções e, principalmente, muito aprendizado. 🚀</p>
+                <li>
+                    <strong>🛠️ Visual Studio Code:</strong>
+                    Utilizamos o VS Code como principal ferramenta para
+                    escrever, testar e organizar nossos códigos.
+                </li>
 
-<p>Nosso objetivo foi compartilhar o máximo possível do que aprendemos durante o trimestre e mostrar um pouco de tudo aquilo que conseguimos construir juntos.</p>
+                <li>
+                    <strong>📐 Estrutura de um Site:</strong>
+                    Aprendemos a organizar o conteúdo e planejar a
+                    estrutura de uma página para facilitar a navegação
+                    e a leitura.
+                </li>
 
-<p>Esperamos que vocês tenham gostado de conhecer o nosso projeto e que, ao navegar por estas páginas, possam perceber um pouco do esforço, da criatividade e do conhecimento que colocamos em cada parte deste trabalho! ❤️💻</p>
+                <li>
+                    <strong>🎪 Produto Final:</strong>
+                    Todo o conhecimento desenvolvido durante as aulas
+                    resultou na criação deste portfólio digital, que
+                    apresenta nossos projetos para a Feira de Ciências.
+                </li>
+            </ul>
+        </section>
 
-<p>Sejam bem-vindos ao resultado da nossa jornada pelo mundo da programação! 🚀</p>
 
-<img src=""
-        alt="aulas de Programação" >
+        <!-- CONCLUSÃO -->
+        <section>
+            <h2>🚀 Nossa Jornada</h2>
 
-<script src="script.js"></script>
-    </body>
+            <p>
+                Durante o trimestre, aprendemos que tecnologia não é
+                apenas programação ou componentes eletrônicos. Ela
+                também envolve criatividade, investigação, trabalho
+                em equipe e capacidade de solucionar problemas.
+            </p>
+
+            <p>
+                Este portfólio representa nossa evolução e reúne
+                experiências desenvolvidas nas áreas de Robótica,
+                Física, Tecnociência e Programação.
+            </p>
+
+            <p>
+                <strong>
+                    Nosso objetivo é transformar ideias em projetos
+                    e projetos em conhecimento!
+                </strong>
+            </p>
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>
+            Projeto Integrador - 2º Ano do Ensino Médio
+        </p>
+
+        <p>
+            Feira de Ciências
+        </p>
+    </footer>
+
+</body>
+
 </html>
