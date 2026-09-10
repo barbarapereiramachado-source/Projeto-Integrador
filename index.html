@@ -1,5 +1,6 @@
+```html
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -7,394 +8,780 @@
 
     <title>Portfólio - Projeto Integrador</title>
 
-<style>
-:root{
-  --primary:#6c63ff;
-  --secondary:#00b8d9;
-  --dark:#172033;
-  --text:#354052;
-  --light:#f5f7fb;
-  --white:#ffffff;
-  --shadow:0 12px 30px rgba(23,32,51,.10);
-  --radius:20px;
-}
+    <style>
+        :root {
+            --primary: #6c63ff;
+            --secondary: #00b8d9;
+            --dark: #172033;
+            --text: #354052;
+            --light: #f5f7fb;
+            --white: #ffffff;
+            --shadow: 0 12px 30px rgba(23, 32, 51, .10);
+            --radius: 20px;
+        }
 
-*{box-sizing:border-box}
+        * {
+            box-sizing: border-box;
+        }
 
-html{scroll-behavior:smooth}
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 130px;
+        }
 
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  color:var(--text);
-  background:linear-gradient(135deg,#f7f9ff 0%,#eef7ff 100%);
-  line-height:1.7;
-}
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background: linear-gradient(135deg, #f7f9ff 0%, #eef7ff 100%);
+            line-height: 1.7;
+        }
 
-#barra-acessibilidade{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
-  flex-wrap:wrap;
-  padding:10px 15px;
-  background:#111827;
-  box-shadow:0 4px 15px rgba(0,0,0,.18);
-}
+        /* =========================
+           BARRA DE ACESSIBILIDADE
+        ========================== */
 
-#barra-acessibilidade button{
-  border:1px solid rgba(255,255,255,.2);
-  background:#1f2937;
-  color:white;
-  padding:9px 13px;
-  border-radius:10px;
-  cursor:pointer;
-  font-weight:600;
-  transition:.2s;
-}
+        #barra-acessibilidade {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
 
-#barra-acessibilidade button:hover{
-  background:var(--primary);
-  transform:translateY(-2px);
-}
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
 
-header{
-  position:relative;
-  text-align:center;
-  padding:75px 20px 85px;
-  color:white;
-  background:
-    radial-gradient(circle at 15% 20%,rgba(0,184,217,.35),transparent 30%),
-    radial-gradient(circle at 85% 20%,rgba(108,99,255,.45),transparent 32%),
-    linear-gradient(135deg,#111827,#273469);
-  overflow:hidden;
-}
+            padding: 10px 15px;
 
-header:after{
-  content:"";
-  position:absolute;
-  left:-5%;
-  right:-5%;
-  bottom:-70px;
-  height:120px;
-  background:var(--light);
-  border-radius:50% 50% 0 0;
-}
+            background: #111827;
 
-header h1{
-  position:relative;
-  z-index:2;
-  margin:0 auto 15px;
-  font-size:clamp(2rem,5vw,4rem);
-  letter-spacing:-1px;
-}
+            box-shadow: 0 4px 15px rgba(0, 0, 0, .18);
+        }
 
-header p{
-  position:relative;
-  z-index:2;
-  max-width:850px;
-  margin:12px auto;
-  font-size:1.08rem;
-  opacity:.95;
-}
+        #barra-acessibilidade button {
+            border: 1px solid rgba(255, 255, 255, .2);
 
-header img{
-  position:relative;
-  z-index:2;
-  display:block;
-  width:min(850px,92%);
-  max-height:430px;
-  object-fit:cover;
-  margin:30px auto;
-  border:7px solid rgba(255,255,255,.9);
-  border-radius:24px;
-  box-shadow:0 25px 55px rgba(0,0,0,.3);
-}
+            background: #1f2937;
+            color: white;
 
-main{
-  width:min(1100px,92%);
-  margin:0 auto;
-  padding:20px 0 70px;
-}
+            padding: 9px 13px;
 
-section{
-  position:relative;
-  margin:30px 0;
-  padding:35px;
-  background:rgba(255,255,255,.95);
-  border:1px solid rgba(108,99,255,.10);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  overflow:hidden;
-}
+            border-radius: 10px;
 
-section:before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:7px;
-  height:100%;
-  background:linear-gradient(var(--primary),var(--secondary));
-}
+            cursor: pointer;
+            font-weight: 600;
 
-h2{
-  margin-top:0;
-  color:var(--dark);
-  font-size:clamp(1.55rem,3vw,2.2rem);
-}
+            transition: .2s;
+        }
 
-h3{
-  color:var(--primary);
-  margin-top:28px;
-}
+        #barra-acessibilidade button:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
 
-p{font-size:1.03rem}
+        /* =========================
+           CABEÇALHO
+        ========================== */
 
-ul{
-  padding-left:22px;
-}
+        header {
+            position: relative;
 
-li{
-  margin:15px 0;
-  padding:14px 16px;
-  background:#f8faff;
-  border-radius:12px;
-  border-left:3px solid var(--secondary);
-}
+            text-align: center;
 
-li strong{color:var(--dark)}
+            padding: 75px 20px 85px;
 
-video{
-  display:inline-block;
-  vertical-align:top;
-  width:calc(50% - 12px);
-  margin:20px 8px 0 0;
-  border-radius:16px;
-  background:#111827;
-  box-shadow:0 10px 25px rgba(0,0,0,.16);
-}
+            color: white;
 
-footer{
-  text-align:center;
-  padding:45px 20px;
-  color:white;
-  background:#111827;
-}
+            background:
+                radial-gradient(circle at 15% 20%, rgba(0, 184, 217, .35), transparent 30%),
+                radial-gradient(circle at 85% 20%, rgba(108, 99, 255, .45), transparent 32%),
+                linear-gradient(135deg, #111827, #273469);
 
-footer p{
-  margin:5px;
-}
+            overflow: hidden;
+        }
 
-@media(max-width:700px){
-  header{padding:50px 15px 70px}
-  section{padding:25px 22px}
-  video{display:block;width:100%;margin:18px 0}
-  #barra-acessibilidade{justify-content:flex-start}
-}
+        header:after {
+            content: "";
 
-html.acessibilidade-clara body{background:white;color:#111}
-html.acessibilidade-clara section{background:white;border:2px solid #111}
-html.acessibilidade-clara header{background:#fff;color:#111}
-html.acessibilidade-clara footer{background:#fff;color:#111}
+            position: absolute;
 
-html.acessibilidade-escura body{background:#111827;color:#f9fafb}
-html.acessibilidade-escura section{background:#1f2937;color:#f9fafb}
-html.acessibilidade-escura h2,
-html.acessibilidade-escura h3,
-html.acessibilidade-escura li strong{color:#fff}
-html.acessibilidade-escura li{background:#374151}
-</style>
+            left: -5%;
+            right: -5%;
+            bottom: -70px;
 
+            height: 120px;
+
+            background: var(--light);
+
+            border-radius: 50% 50% 0 0;
+        }
+
+        header h1 {
+            position: relative;
+            z-index: 2;
+
+            margin: 0 auto 15px;
+
+            font-size: clamp(2rem, 5vw, 4rem);
+
+            letter-spacing: -1px;
+        }
+
+        header p {
+            position: relative;
+            z-index: 2;
+
+            max-width: 850px;
+
+            margin: 12px auto;
+
+            font-size: 1.08rem;
+
+            opacity: .95;
+        }
+
+        header img {
+            position: relative;
+            z-index: 2;
+
+            display: block;
+
+            width: min(850px, 92%);
+
+            max-height: 430px;
+
+            object-fit: cover;
+
+            margin: 30px auto;
+
+            border: 7px solid rgba(255, 255, 255, .9);
+
+            border-radius: 24px;
+
+            box-shadow: 0 25px 55px rgba(0, 0, 0, .3);
+        }
+
+        /* =========================
+           MENU
+        ========================== */
+
+        .menu {
+            position: sticky;
+
+            top: 62px;
+
+            z-index: 900;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+            padding: 10px 15px;
+
+            background: rgba(255, 255, 255, .94);
+
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid #e5e7eb;
+
+            box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
+        }
+
+        .menu a {
+            text-decoration: none;
+
+            color: #273469;
+
+            font-weight: 700;
+
+            padding: 9px 15px;
+
+            border-radius: 10px;
+
+            transition: .2s;
+        }
+
+        .menu a:hover {
+            background: #eef0ff;
+
+            color: #6c63ff;
+
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           CONTEÚDO
+        ========================== */
+
+        main {
+            width: min(1100px, 92%);
+
+            margin: 0 auto;
+
+            padding: 20px 0 70px;
+        }
+
+        section {
+            position: relative;
+
+            margin: 30px 0;
+
+            padding: 35px;
+
+            background: rgba(255, 255, 255, .95);
+
+            border: 1px solid rgba(108, 99, 255, .10);
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow);
+
+            overflow: hidden;
+
+            /* Ajuda o menu a não esconder o título */
+            scroll-margin-top: 140px;
+        }
+
+        section:before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 7px;
+            height: 100%;
+
+            background: linear-gradient(var(--primary), var(--secondary));
+        }
+
+        h2 {
+            margin-top: 0;
+
+            color: var(--dark);
+
+            font-size: clamp(1.55rem, 3vw, 2.2rem);
+        }
+
+        h3 {
+            color: var(--primary);
+
+            margin-top: 28px;
+        }
+
+        p {
+            font-size: 1.03rem;
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        li {
+            margin: 15px 0;
+
+            padding: 14px 16px;
+
+            background: #f8faff;
+
+            border-radius: 12px;
+
+            border-left: 3px solid var(--secondary);
+        }
+
+        li strong {
+            color: var(--dark);
+        }
+
+        /* =========================
+           VÍDEOS
+        ========================== */
+
+        video {
+            display: inline-block;
+
+            vertical-align: top;
+
+            width: calc(50% - 12px);
+
+            margin: 20px 8px 0 0;
+
+            border-radius: 16px;
+
+            background: #111827;
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .16);
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding: 45px 20px;
+
+            color: white;
+
+            background: #111827;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* =========================
+           ACESSIBILIDADE
+        ========================== */
+
+        html.acessibilidade-clara body {
+            background: white;
+            color: #111;
+        }
+
+        html.acessibilidade-clara section {
+            background: white;
+            border: 2px solid #111;
+        }
+
+        html.acessibilidade-clara header {
+            background: #fff;
+            color: #111;
+        }
+
+        html.acessibilidade-clara footer {
+            background: #fff;
+            color: #111;
+        }
+
+        html.acessibilidade-escura body {
+            background: #111827;
+            color: #f9fafb;
+        }
+
+        html.acessibilidade-escura section {
+            background: #1f2937;
+            color: #f9fafb;
+        }
+
+        html.acessibilidade-escura h2,
+        html.acessibilidade-escura h3,
+        html.acessibilidade-escura li strong {
+            color: #fff;
+        }
+
+        html.acessibilidade-escura li {
+            background: #374151;
+        }
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================== */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 50px 15px 70px;
+            }
+
+            section {
+                padding: 25px 22px;
+            }
+
+            video {
+                display: block;
+                width: 100%;
+                margin: 18px 0;
+            }
+
+            #barra-acessibilidade {
+                justify-content: flex-start;
+            }
+
+            .menu {
+                top: 108px;
+            }
+
+            .menu a {
+                font-size: .9rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <div id="barra-acessibilidade" role="region" aria-label="Ferramentas de acessibilidade">
-  <button type="button" id="btn-ler" aria-pressed="false">
-    <span aria-hidden="true">🔊</span> Ler página
-  </button>
-  <button type="button" id="btn-escurecer" aria-label="Diminuir contraste, escurecer o texto">
-    <span aria-hidden="true">🌙</span> Escurecer
-  </button>
-  <button type="button" id="btn-clarear" aria-label="Aumentar contraste, clarear o texto">
-    <span aria-hidden="true">☀️</span> Clarear
-  </button>
-  <button type="button" id="btn-aumentar-fonte" aria-label="Aumentar tamanho da fonte">
-    <span aria-hidden="true">A+</span>
-  </button>
-  <button type="button" id="btn-diminuir-fonte" aria-label="Diminuir tamanho da fonte">
-    <span aria-hidden="true">A-</span>
-  </button>
-  <button type="button" id="btn-resetar" aria-label="Restaurar aparência original">
-    <span aria-hidden="true">↺</span> Redefinir
-  </button>
-</div>
-<script>
-(function () {
-  "use strict";
+    <!-- =========================
+         BARRA DE ACESSIBILIDADE
+    ========================== -->
 
-  var html = document.documentElement;
-  var btnLer = document.getElementById("btn-ler");
-  var btnEscurecer = document.getElementById("btn-escurecer");
-  var btnClarear = document.getElementById("btn-clarear");
-  var btnFontePlus = document.getElementById("btn-aumentar-fonte");
-  var btnFonteMinus = document.getElementById("btn-diminuir-fonte");
-  var btnResetar = document.getElementById("btn-resetar");
+    <div id="barra-acessibilidade"
+         role="region"
+         aria-label="Ferramentas de acessibilidade">
 
-  var tamanhoFonteAtual = 100;
+        <button type="button" id="btn-ler" aria-pressed="false">
+            <span aria-hidden="true">🔊</span> Ler página
+        </button>
 
-  var sintetizador = window.speechSynthesis;
-  var falando = false;
+        <button type="button"
+                id="btn-escurecer"
+                aria-label="Diminuir contraste, escurecer o texto">
 
-  function pegarTextoDaPagina() {
-    var clone = document.body.cloneNode(true);
-    var barraNoClone = clone.querySelector("#barra-acessibilidade");
-    if (barraNoClone) barraNoClone.remove();
-    return clone.innerText || clone.textContent || "";
-  }
+            <span aria-hidden="true">🌙</span> Escurecer
+        </button>
 
-  function lerPagina() {
-    if (!sintetizador) {
-      alert("Seu navegador não suporta leitura de página (Web Speech API).");
-      return;
-    }
-    var texto = pegarTextoDaPagina().trim();
-    if (!texto) return;
+        <button type="button"
+                id="btn-clarear"
+                aria-label="Aumentar contraste, clarear o texto">
 
-    var fala = new SpeechSynthesisUtterance(texto);
-    fala.lang = "pt-BR";
-    fala.rate = 1;
+            <span aria-hidden="true">☀️</span> Clarear
+        </button>
 
-    fala.onend = function () {
-      falando = false;
-      btnLer.setAttribute("aria-pressed", "false");
-      btnLer.innerHTML = '<span aria-hidden="true">🔊</span> Ler página';
-    };
+        <button type="button"
+                id="btn-aumentar-fonte"
+                aria-label="Aumentar tamanho da fonte">
 
-    sintetizador.speak(fala);
-    falando = true;
-    btnLer.setAttribute("aria-pressed", "true");
-    btnLer.innerHTML = '<span aria-hidden="true">⏹</span> Parar leitura';
-  }
+            <span aria-hidden="true">A+</span>
+        </button>
 
-  function pararLeitura() {
-    if (sintetizador) sintetizador.cancel();
-    falando = false;
-    btnLer.setAttribute("aria-pressed", "false");
-    btnLer.innerHTML = '<span aria-hidden="true">🔊</span> Ler página';
-  }
+        <button type="button"
+                id="btn-diminuir-fonte"
+                aria-label="Diminuir tamanho da fonte">
 
-  btnLer.addEventListener("click", function () {
-    if (falando) {
-      pararLeitura();
-    } else {
-      lerPagina();
-    }
-  });
+            <span aria-hidden="true">A-</span>
+        </button>
 
-  function aplicarContraste(modo) {
-    html.classList.remove("acessibilidade-clara", "acessibilidade-escura");
-    if (modo === "claro") html.classList.add("acessibilidade-clara");
-    if (modo === "escuro") html.classList.add("acessibilidade-escura");
-  }
+        <button type="button"
+                id="btn-resetar"
+                aria-label="Restaurar aparência original">
 
-  btnClarear.addEventListener("click", function () {
-    var jaEstaClaro = html.classList.contains("acessibilidade-clara");
-    aplicarContraste(jaEstaClaro ? "normal" : "claro");
-  });
+            <span aria-hidden="true">↺</span> Redefinir
+        </button>
 
-  btnEscurecer.addEventListener("click", function () {
-    var jaEstaEscuro = html.classList.contains("acessibilidade-escura");
-    aplicarContraste(jaEstaEscuro ? "normal" : "escuro");
-  });
+    </div>
 
-  function ajustarFonte(delta) {
-    tamanhoFonteAtual = Math.min(200, Math.max(70, tamanhoFonteAtual + delta));
-    html.style.fontSize = tamanhoFonteAtual + "%";
-  }
 
-  btnFontePlus.addEventListener("click", function () { ajustarFonte(10); });
-  btnFonteMinus.addEventListener("click", function () { ajustarFonte(-10); });
+    <!-- =========================
+         SCRIPT ACESSIBILIDADE
+    ========================== -->
 
-  btnResetar.addEventListener("click", function () {
-    pararLeitura();
-    aplicarContraste("normal");
-    tamanhoFonteAtual = 100;
-    html.style.fontSize = "";
-  });
-})();
-</script>
+    <script>
+        (function () {
 
-    
-<nav class="menu" aria-label="Navegação principal">
-  <a href="#sobre">Sobre</a>
-  <a href="#robotica">Robótica</a>
-  <a href="#fisica">Física</a>
-  <a href="#programacao">Programação</a>
-  <a href="#jornada">Nossa Jornada</a>
-</nav>
-<style>
-.menu{
-  position:sticky;
-  top:62px;
-  z-index:900;
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  flex-wrap:wrap;
-  padding:10px 15px;
-  background:rgba(255,255,255,.94);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #e5e7eb;
-}
-.menu a{
-  text-decoration:none;
-  color:#273469;
-  font-weight:700;
-  padding:8px 13px;
-  border-radius:10px;
-}
-.menu a:hover{background:#eef0ff;color:#6c63ff}
-@media(max-width:700px){.menu{top:108px}.menu a{font-size:.9rem}}
-</style>
+            "use strict";
 
-    <!-- CABEÇALHO -->
+            var html = document.documentElement;
+
+            var btnLer = document.getElementById("btn-ler");
+            var btnEscurecer = document.getElementById("btn-escurecer");
+            var btnClarear = document.getElementById("btn-clarear");
+            var btnFontePlus = document.getElementById("btn-aumentar-fonte");
+            var btnFonteMinus = document.getElementById("btn-diminuir-fonte");
+            var btnResetar = document.getElementById("btn-resetar");
+
+            var tamanhoFonteAtual = 100;
+
+            var sintetizador = window.speechSynthesis;
+
+            var falando = false;
+
+
+            function pegarTextoDaPagina() {
+
+                var clone = document.body.cloneNode(true);
+
+                var barraNoClone =
+                    clone.querySelector("#barra-acessibilidade");
+
+                if (barraNoClone) {
+                    barraNoClone.remove();
+                }
+
+                return clone.innerText ||
+                    clone.textContent ||
+                    "";
+            }
+
+
+            function lerPagina() {
+
+                if (!sintetizador) {
+
+                    alert(
+                        "Seu navegador não suporta leitura de página (Web Speech API)."
+                    );
+
+                    return;
+                }
+
+                var texto = pegarTextoDaPagina().trim();
+
+                if (!texto) {
+                    return;
+                }
+
+                var fala =
+                    new SpeechSynthesisUtterance(texto);
+
+                fala.lang = "pt-BR";
+
+                fala.rate = 1;
+
+
+                fala.onend = function () {
+
+                    falando = false;
+
+                    btnLer.setAttribute(
+                        "aria-pressed",
+                        "false"
+                    );
+
+                    btnLer.innerHTML =
+                        '<span aria-hidden="true">🔊</span> Ler página';
+                };
+
+
+                sintetizador.speak(fala);
+
+                falando = true;
+
+                btnLer.setAttribute(
+                    "aria-pressed",
+                    "true"
+                );
+
+                btnLer.innerHTML =
+                    '<span aria-hidden="true">⏹</span> Parar leitura';
+            }
+
+
+            function pararLeitura() {
+
+                if (sintetizador) {
+                    sintetizador.cancel();
+                }
+
+                falando = false;
+
+                btnLer.setAttribute(
+                    "aria-pressed",
+                    "false"
+                );
+
+                btnLer.innerHTML =
+                    '<span aria-hidden="true">🔊</span> Ler página';
+            }
+
+
+            btnLer.addEventListener(
+                "click",
+                function () {
+
+                    if (falando) {
+                        pararLeitura();
+                    } else {
+                        lerPagina();
+                    }
+
+                }
+            );
+
+
+            function aplicarContraste(modo) {
+
+                html.classList.remove(
+                    "acessibilidade-clara",
+                    "acessibilidade-escura"
+                );
+
+                if (modo === "claro") {
+                    html.classList.add(
+                        "acessibilidade-clara"
+                    );
+                }
+
+                if (modo === "escuro") {
+                    html.classList.add(
+                        "acessibilidade-escura"
+                    );
+                }
+            }
+
+
+            btnClarear.addEventListener(
+                "click",
+                function () {
+
+                    var jaEstaClaro =
+                        html.classList.contains(
+                            "acessibilidade-clara"
+                        );
+
+                    aplicarContraste(
+                        jaEstaClaro
+                            ? "normal"
+                            : "claro"
+                    );
+                }
+            );
+
+
+            btnEscurecer.addEventListener(
+                "click",
+                function () {
+
+                    var jaEstaEscuro =
+                        html.classList.contains(
+                            "acessibilidade-escura"
+                        );
+
+                    aplicarContraste(
+                        jaEstaEscuro
+                            ? "normal"
+                            : "escuro"
+                    );
+                }
+            );
+
+
+            function ajustarFonte(delta) {
+
+                tamanhoFonteAtual =
+                    Math.min(
+                        200,
+                        Math.max(
+                            70,
+                            tamanhoFonteAtual + delta
+                        )
+                    );
+
+                html.style.fontSize =
+                    tamanhoFonteAtual + "%";
+            }
+
+
+            btnFontePlus.addEventListener(
+                "click",
+                function () {
+                    ajustarFonte(10);
+                }
+            );
+
+
+            btnFonteMinus.addEventListener(
+                "click",
+                function () {
+                    ajustarFonte(-10);
+                }
+            );
+
+
+            btnResetar.addEventListener(
+                "click",
+                function () {
+
+                    pararLeitura();
+
+                    aplicarContraste("normal");
+
+                    tamanhoFonteAtual = 100;
+
+                    html.style.fontSize = "";
+                }
+            );
+
+        })();
+    </script>
+
+
+    <!-- =========================
+         MENU PRINCIPAL
+    ========================== -->
+
+    <nav class="menu" aria-label="Navegação principal">
+
+        <a href="#sobre">🏠 Sobre</a>
+
+        <a href="#robotica">🤖 Robótica</a>
+
+        <a href="#fisica">🔬 Física</a>
+
+        <a href="#programacao">💻 Programação</a>
+
+        <a href="#jornada">🚀 Nossa Jornada</a>
+
+    </nav>
+
+
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
+
     <header>
-        <h1>Portfólio do Projeto Integrador</h1>
-        <img src="WhatsApp Image 2026-09-10 at 07.51.25.jpeg" alt="Foto da turma do 2° B" >
+
+        <h1>
+            Portfólio do Projeto Integrador
+        </h1>
+
+
+        <img
+            src="WhatsApp Image 2026-09-10 at 07.51.25.jpeg"
+            alt="Foto da turma do 2° B"
+        >
+
 
         <p>
             Somos alunos do 2º Ano do Ensino Médio encarando o desafio do
             Projeto Integrador neste 2º trimestre.
         </p>
 
+
         <p>
             Robótica, Física e Tecnociência, Programação se unem para
             transformar o aprendizado da sala de aula em tecnologia prática.
         </p>
+
     </header>
 
 
-    <!-- SOBRE O PROJETO -->
+    <!-- =========================
+         CONTEÚDO PRINCIPAL
+    ========================== -->
+
     <main>
 
-        <section>
-            <h2>Sobre o Projeto Integrador</h2>
+
+        <!-- SOBRE -->
+
+        <section id="sobre">
+
+            <h2>
+                Sobre o Projeto Integrador
+            </h2>
+
 
             <p>
                 Bem-vindos à nossa jornada de inovação! 🚀
             </p>
 
+
             <p>
                 Este site é o diário de bordo do nosso 2º trimestre no
                 Projeto Integrador. Aqui, a teoria ganha vida na prática
                 através da união de quatro grandes áreas:
-                <strong>Robótica, Física, Tecnociência e Programação.</strong>
+                <strong>
+                    Robótica, Física, Tecnociência e Programação.
+                </strong>
             </p>
+
 
             <p>
                 Mais do que aprender conteúdos isolados, nós conectamos
@@ -402,12 +789,18 @@ html.acessibilidade-escura li{background:#374151}
                 integração multidisciplinar está presente neste site e
                 nos projetos desenvolvidos ao longo do trimestre.
             </p>
+
         </section>
 
 
         <!-- ROBÓTICA -->
-        <section>
-            <h2>🤖 Robótica</h2>
+
+        <section id="robotica">
+
+            <h2>
+                🤖 Robótica
+            </h2>
+
 
             <p>
                 Neste 2º trimestre, a Robótica foi a ponte entre o código
@@ -415,66 +808,120 @@ html.acessibilidade-escura li{background:#374151}
                 placas e sensores em soluções práticas e tecnológicas.
             </p>
 
-            <h3>Projetos desenvolvidos</h3>
+
+            <h3>
+                Projetos desenvolvidos
+            </h3>
+
 
             <ul>
+
                 <li>
-                    <strong>🏎️ Robô Seguidor de Linhas:</strong>
+                    <strong>
+                        🏎️ Robô Seguidor de Linhas:
+                    </strong>
+
                     Robô autônomo que utiliza sensores infravermelhos
                     para identificar o contraste do solo e controlar
                     os motores, mantendo-se na pista.
                 </li>
 
+
                 <li>
-                    <strong>🌈 Disco de Newton Motorizado:</strong>
+                    <strong>
+                        🌈 Disco de Newton Motorizado:
+                    </strong>
+
                     Projeto que une Física e Robótica. A rotação do
                     disco permite observar a mistura das cores do
                     espectro visível, produzindo a percepção da cor branca.
                 </li>
 
+
                 <li>
-                    <strong>💡 Efeitos Luminosos e LED RGB:</strong>
+                    <strong>
+                        💡 Efeitos Luminosos e LED RGB:
+                    </strong>
+
                     Exploramos o controle PWM para criar efeitos de
                     iluminação e diferentes combinações de cores em
                     um LED RGB.
                 </li>
 
+
                 <li>
-                    <strong>🚦 Semáforo de Cruzamento:</strong>
+                    <strong>
+                        🚦 Semáforo de Cruzamento:
+                    </strong>
+
                     Simulação de um sistema de trânsito utilizando
                     programação e automação para controlar a alternância
                     dos sinais.
                 </li>
 
+
                 <li>
-                    <strong>🚶 Sensor de Presença:</strong>
+                    <strong>
+                        🚶 Sensor de Presença:
+                    </strong>
+
                     Sistema capaz de identificar movimentos no ambiente
                     e executar respostas automáticas, como acender luzes
                     ou ativar alarmes.
                 </li>
 
+
                 <li>
-                    <strong>🚨 Sensor de Gás e Fumaça:</strong>
+                    <strong>
+                        🚨 Sensor de Gás e Fumaça:
+                    </strong>
+
                     Projeto voltado à segurança, utilizando sensores para
                     monitorar o ambiente e emitir alertas quando gases
                     ou fumaça são detectados.
                 </li>
-            </ul>
-            <video controls>
-    <source src="VID-20260821-WA0024.mp4" type="video/mp4">
-    
-</video>
 
-<video controls>
-    <source src="VID-20260821-WA0025.mp4" type="video/mp4">
-    
-</video>
+            </ul>
+
+
+            <!-- VÍDEO 1 -->
+
+            <video controls>
+
+                <source
+                    src="VID-20260821-WA0024.mp4"
+                    type="video/mp4"
+                >
+
+                Seu navegador não suporta vídeos.
+
+            </video>
+
+
+            <!-- VÍDEO 2 -->
+
+            <video controls>
+
+                <source
+                    src="VID-20260821-WA0025.mp4"
+                    type="video/mp4"
+                >
+
+                Seu navegador não suporta vídeos.
+
+            </video>
+
         </section>
 
 
-        <!-- FÍSICA E TECNOCIÊNCIA -->
-        <section>
-            <h2>🔬 Física e Tecnociência</h2>
+        <!-- FÍSICA -->
+
+        <section id="fisica">
+
+            <h2>
+                🔬 Física e Tecnociência
+            </h2>
+
 
             <p>
                 A Física e a Tecnociência contribuíram para compreender
@@ -483,17 +930,24 @@ html.acessibilidade-escura li{background:#374151}
                 científicos com situações práticas e soluções tecnológicas.
             </p>
 
+
             <p>
                 Durante as atividades, investigamos fenômenos relacionados
                 à luz, às cores, ao movimento, à eletricidade e ao
                 funcionamento de diferentes componentes e sensores.
             </p>
+
         </section>
 
 
         <!-- PROGRAMAÇÃO -->
-        <section>
-            <h2>💻 Programação</h2>
+
+        <section id="programacao">
+
+            <h2>
+                💻 Programação
+            </h2>
+
 
             <p>
                 Na disciplina de Programação, deixamos o código de
@@ -501,7 +955,11 @@ html.acessibilidade-escura li{background:#374151}
                 de ambientes digitais.
             </p>
 
-            <h3>Da primeira tag à criação do site</h3>
+
+            <h3>
+                Da primeira tag à criação do site
+            </h3>
+
 
             <p>
                 Utilizando o Visual Studio Code, mergulhamos no universo
@@ -509,40 +967,64 @@ html.acessibilidade-escura li{background:#374151}
                 linha por linha.
             </p>
 
+
             <ul>
+
                 <li>
-                    <strong>🧱 HTML:</strong>
+                    <strong>
+                        🧱 HTML:
+                    </strong>
+
                     Aprendemos a utilizar o HTML para estruturar títulos,
                     parágrafos, imagens, listas e outros elementos de
                     uma página web.
                 </li>
 
+
                 <li>
-                    <strong>🛠️ Visual Studio Code:</strong>
+                    <strong>
+                        🛠️ Visual Studio Code:
+                    </strong>
+
                     Utilizamos o VS Code como principal ferramenta para
                     escrever, testar e organizar nossos códigos.
                 </li>
 
+
                 <li>
-                    <strong>📐 Estrutura de um Site:</strong>
+                    <strong>
+                        📐 Estrutura de um Site:
+                    </strong>
+
                     Aprendemos a organizar o conteúdo e planejar a
                     estrutura de uma página para facilitar a navegação
                     e a leitura.
                 </li>
 
+
                 <li>
-                    <strong>🎪 Produto Final:</strong>
+                    <strong>
+                        🎪 Produto Final:
+                    </strong>
+
                     Todo o conhecimento desenvolvido durante as aulas
                     resultou na criação deste portfólio digital, que
                     apresenta nossos projetos para a Feira de Ciências.
                 </li>
+
             </ul>
+
         </section>
 
 
-        <!-- CONCLUSÃO -->
-        <section>
-            <h2>🚀 Nossa Jornada</h2>
+        <!-- NOSSA JORNADA -->
+
+        <section id="jornada">
+
+            <h2>
+                🚀 Nossa Jornada
+            </h2>
+
 
             <p>
                 Durante o trimestre, aprendemos que tecnologia não é
@@ -551,11 +1033,13 @@ html.acessibilidade-escura li{background:#374151}
                 em equipe e capacidade de solucionar problemas.
             </p>
 
+
             <p>
                 Este portfólio representa nossa evolução e reúne
                 experiências desenvolvidas nas áreas de Robótica,
                 Física, Tecnociência e Programação.
             </p>
+
 
             <p>
                 <strong>
@@ -563,22 +1047,30 @@ html.acessibilidade-escura li{background:#374151}
                     e projetos em conhecimento!
                 </strong>
             </p>
+
         </section>
 
     </main>
 
 
-    <!-- RODAPÉ -->
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
+
     <footer>
+
         <p>
             Projeto Integrador - 2º Ano do Ensino Médio
         </p>
 
+
         <p>
             Feira de Ciências
         </p>
+
     </footer>
 
 </body>
 
 </html>
+```
